@@ -1,5 +1,10 @@
+import './base-page.scss'
+
 const Home = () => {
-    return <div>Je suis la home</div>
+    return <div className='page'>
+
+
+    </div>
 }
 
 export default Home

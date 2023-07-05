@@ -1,9 +1,10 @@
 // type de l'object recette
-
 export interface Recipe {
-    title: string;
-    description: string;
-    difficulty: number;
-    tag: string;
-    duree: number;
+    id: number
+    title: string
+    description?: string
+    image: string
+    difficulty: 1 | 2 | 3 | 4 | 5
+    tag: string
+    preparationTime: number
 }
