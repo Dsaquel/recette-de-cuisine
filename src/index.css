@@ -1,4 +1,5 @@
-@import './scss/variables.scss';
+@import 'scss/variables.scss';
+@import 'scss/base.scss';
 
 html,
 body,
@@ -163,7 +164,6 @@ table {
 3. Remove default padding in all browsers.
 */
 
-button,
 input,
 optgroup,
 select,
