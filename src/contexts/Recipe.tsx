@@ -24,7 +24,7 @@ const RecipeProvider = ({ children }: Props) => {
   )
 }
 
-export const useContextCats = () => {
+export const useRecipes = () => {
   return useContext(RecipePageContext)
 }
 
