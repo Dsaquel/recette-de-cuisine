@@ -13,7 +13,7 @@ const Home = () => {
     <div className="page">
       <div className="search">
         <input value={searchRecipe} onChange={(e) => setSearchRecipe(e.target.value)} placeholder='couscous' />
-        <button className='button' onClick={handleClick}>rechercher</button>
+        <button className='' onClick={handleClick}>rechercher</button>
       </div>
       <RecipeList />
     </div>
