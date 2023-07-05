@@ -21,15 +21,49 @@ button {
   font-size: 14px;
   border-radius: 6px;
 
+  &:hover,
+  &:focus {
+    border: 1px solid #c6e2ff;
+    border-color: #c6e2ff;
+  }
+  &:active {
+    border: 1px solid #409eff;
+    border-color: #409eff;
+  }
+
   &.success {
     color: var(--c-white);
     border: 1px solid var(--c-success);
     border-color: var(--c-success);
+    background: var(--c-success);
+    &:focus,
+    &:hover {
+      border: 1px solid #95d475;
+      border-color: #95d475;
+      background: #95d475;
+    }
+    &:active {
+      border: 1px solid #529b2e;
+      border-color: #529b2e;
+      background: #529b2e;
+    }
   }
 
-  &.error {
+  &.danger {
     color: var(--c-white);
     border: 1px solid var(--c-danger);
     border-color: var(--c-danger);
+    background: var(--c-danger);
+    &:focus,
+    &:hover {
+      border: 1px solid #f89898;
+      border-color: #f89898;
+      background: #f89898;
+    }
+    &:active {
+      background: #c45656;
+      border: 1px solid #c45656;
+      border-color: #c45656;
+    }
   }
 }
