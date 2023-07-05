@@ -1,0 +1,35 @@
+button {
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  line-height: 1;
+  height: 32px;
+  white-space: nowrap;
+  cursor: pointer;
+  text-align: center;
+  box-sizing: border-box;
+  outline: none;
+  transition: 0.1s;
+  font-weight: 500;
+  user-select: none;
+  vertical-align: middle;
+  color: var(--c-black-regular);
+  background-color: var(--c-white);
+  border: 1px solid var(--c-border-color);
+  border-color: var(--c-border-color);
+  padding: 8px 15px;
+  font-size: 14px;
+  border-radius: 6px;
+
+  &.success {
+    color: var(--c-white);
+    border: 1px solid var(--c-success);
+    border-color: var(--c-success);
+  }
+
+  &.error {
+    color: var(--c-white);
+    border: 1px solid var(--c-danger);
+    border-color: var(--c-danger);
+  }
+}
