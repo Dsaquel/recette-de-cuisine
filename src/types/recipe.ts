@@ -7,7 +7,7 @@ export interface Recipe {
     description?: string
 
     /*  */
-    image: string
+    image?: string
 
     /* difficulté de la recette */
     difficulty: 1 | 2 | 3 | 4 | 5
