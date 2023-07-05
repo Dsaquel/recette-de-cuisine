@@ -1,0 +1,16 @@
+.content {
+  background: var(--color-gray);
+  padding: 20px;
+}
+
+.navbar {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  max-width: 1300px;
+  gap: 10px;
+  margin: auto;
+  a:hover {
+    text-decoration: underline;
+  }
+}
