@@ -1,6 +1,11 @@
-import './recipe-list.scss'
+import { Recipe } from '@/types/recipe'
+import './RecipeDetail.scss'
 
-const RecipeDetail = ({}: Props) => {
+interface Props {
+  recipe: Recipe
+}
+
+const RecipeDetail = ({ recipe }: Props) => {
   return <div></div>
 }
 
