@@ -1,4 +1,4 @@
-import { Difficulty, IRecipe } from '@/types/recipe';
+import { Difficulty, IRecipe, UnitMeasure } from '@/types/recipe';
 import React, { ReactNode } from 'react'
 import { useContext } from 'react'
 import { useState } from 'react'
@@ -30,21 +30,26 @@ const RecipeProvider = ({ children }: Props) => {
             id: 1,
             name: 'Merguez',
             quantity: 3,
+            unitMeasure: UnitMeasure.KG
         },
         {
             id: 2,
             name: 'Boeuf',
-            quantity: 8
+            quantity: 8,
+            unitMeasure: UnitMeasure.KG
         },
         {
             id: 3,
             name: 'semoule de blé',
-            quantity: 94039
+            quantity: 94039,
+            unitMeasure: UnitMeasure.G
         },
         {
             id: 4,
             name: 'légumes',
-            quantity: 4
+            quantity: 4,
+            unitMeasure: UnitMeasure.G
+
         },
         ],
       person: 4,

@@ -5,7 +5,6 @@ const RecipeHome = () => {
     return (
         <div className="page">
             <FormRecipe />
-            <RecipeList />
         </div>
     )
 }

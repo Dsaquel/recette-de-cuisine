@@ -26,8 +26,8 @@ export enum Difficulty {
 
 export enum UnitMeasure {
   NONE,
-  CL,
-  L,
-  KG,
-  G
+  CL = "cl",
+  L = "l",
+  KG = "kg",
+  G = "g",
 }

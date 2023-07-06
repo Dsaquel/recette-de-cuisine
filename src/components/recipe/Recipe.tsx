@@ -19,7 +19,9 @@ const Recipe = ({ recipe, showAllContent = false }: Props) => {
     const personNumber = quantity; // Calcul du nombre de personnes
 
     return (
-        <div className="image-item">
+        <div
+            className="image-item"
+            style={{ transform: showAllContent ? "unset" : "0.3s" }}>
             <img src={recipe.img} alt="Image 1" />
             <div className="image-text">
                 <h3 className="card_title">{recipe.title}</h3>
@@ -44,7 +46,8 @@ const Recipe = ({ recipe, showAllContent = false }: Props) => {
                                 key={ingredient.id}>
                                 <p>{ingredient.name}</p>
                                 <span className="card__text">
-                                {ingredient.quantity * personNumber}
+                                    {ingredient.quantity * personNumber}{" "}
+                                    {ingredient.unitMeasure}
                                 </span>
                             </div>
                         ))}
@@ -52,6 +55,11 @@ const Recipe = ({ recipe, showAllContent = false }: Props) => {
                         <p className="card__text">{recipe.difficulty}</p>
                         <p className="card__text">
                             {recipe.preparationTime} min
+                        </p>
+                        <p
+                            className="card__text"
+                            style={{ textTransform: "capitalize" }}>
+                            {recipe.tag}
                         </p>
                     </div>
                 )}

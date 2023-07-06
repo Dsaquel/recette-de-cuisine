@@ -1,5 +1,5 @@
 import { useRecipes } from "@/contexts/Recipe";
-import { Difficulty, IRecipe, IIngredient, UnitMeasure  } from "@/types/recipe";
+import { Difficulty, IRecipe, IIngredient, UnitMeasure } from "@/types/recipe";
 import { useForm } from "react-hook-form";
 import { useState } from "react";
 import "./FormRecipe.scss";
@@ -15,7 +15,9 @@ const FormRecipe = () => {
     const [ingredients, setIngredients] = useState<IIngredient[]>([]);
     const [ingredientName, setIngredientName] = useState<string>("");
     const [ingredientQuantity, setIngredientQuantity] = useState<number>(1);
-    const [ingredientUnitMeasure, setIngredientUnitMeasure] = useState<IIngredient['unitMeasure']>('u')
+    const [ingredientUnitMeasure, setIngredientUnitMeasure] = useState<
+        IIngredient["unitMeasure"]
+    >(UnitMeasure.G);
 
     const onSubmit = (data: IRecipe) => {
         addRecipe({
@@ -34,14 +36,14 @@ const FormRecipe = () => {
     };
 
     const handleAddIngredient = () => {
-        if(!ingredientName.length) return
+        if (!ingredientName.length) return;
         setIngredients([
             ...ingredients,
             {
                 id: Date.now(),
                 name: ingredientName,
                 quantity: ingredientQuantity,
-                unitMeasure: 'u'
+                unitMeasure: ingredientUnitMeasure,
             },
         ]);
         setIngredientName("");
@@ -50,7 +52,14 @@ const FormRecipe = () => {
 
     const handleRemoveIngredient = (id: number) => {
         const updatedIngredients = [...ingredients];
-        updatedIngredients.splice(updatedIngredients.indexOf(updatedIngredients.find(ingredient => ingredient.id === id)as IIngredient) , 1);
+        updatedIngredients.splice(
+            updatedIngredients.indexOf(
+                updatedIngredients.find(
+                    (ingredient) => ingredient.id === id
+                ) as IIngredient
+            ),
+            1
+        );
         setIngredients(updatedIngredients);
     };
 
@@ -101,10 +110,13 @@ const FormRecipe = () => {
                         <div className="ingredient" key={ingredient.id}>
                             <input disabled value={ingredient.name} />
                             <input disabled value={ingredient.quantity} />
+                            <input disabled value={ingredient.unitMeasure} />
                             <button
                                 className="close"
                                 type="button"
-                                onClick={() => handleRemoveIngredient(ingredient.id)}>
+                                onClick={() =>
+                                    handleRemoveIngredient(ingredient.id)
+                                }>
                                 <span className="material-symbols-outlined">
                                     close
                                 </span>
@@ -112,7 +124,7 @@ const FormRecipe = () => {
                         </div>
                     ))}
 
-                    <div className="item_ingredient">
+                    <div className="ingredients">
                         <input
                             type="text"
                             placeholder="nom de l'ingrédiant"
@@ -149,34 +161,39 @@ const FormRecipe = () => {
                                 {errors.quantity.message}
                             </span>
                         )}
-                    </div>
-
-                    <select
-                         
-                        value={ingredientUnitMeasure}
+                        <select
+                            value={ingredientUnitMeasure}
                             {...register("unitMeasure", {
-                            required: "Ce champ est requis",   
+                                required: "Ce champ est requis",
                             })}
                             onChange={(e) =>
                                 setIngredientUnitMeasure(e.target.value)
-                            }
-                        >
+                            }>
                             <option disabled>sélectionner</option>
-                            <option value={UnitMeasure.KG}>Kg</option>
-                            <option value={UnitMeasure.L}>l</option>
-                            <option value={UnitMeasure.G}>g</option>
-                            <option value={UnitMeasure.CL}>cL</option>
+                            <option value={UnitMeasure.KG}>
+                                {UnitMeasure.KG}
+                            </option>
+                            <option value={UnitMeasure.L}>
+                                {UnitMeasure.L}
+                            </option>
+                            <option value={UnitMeasure.G}>
+                                {UnitMeasure.G}
+                            </option>
+                            <option value={UnitMeasure.CL}>
+                                {UnitMeasure.CL}
+                            </option>
                         </select>
+                    </div>
 
-                        {errors.quantity && (
-                            <span className="error">
-                                {errors.quantity.message}
-                            </span>
-                        )}
-
-                    <button className="btn" type="button" onClick={handleAddIngredient}>
+                    <button
+                        className="btn"
+                        type="button"
+                        onClick={handleAddIngredient}>
                         Ajouter un nouvel ingrédient
                     </button>
+                    {errors.quantity && (
+                        <span className="error">{errors.quantity.message}</span>
+                    )}
                 </div>
                 <div>
                     <label htmlFor="person">Nombre de personnes</label>
@@ -230,7 +247,9 @@ const FormRecipe = () => {
                     <label htmlFor="tag">Tag</label>
                     <input placeholder="Tag" {...register("tag")} />
                 </div>
-                <button className="btn" type="submit">Ajouter la recette</button>
+                <button className="btn" type="submit">
+                    Ajouter la recette
+                </button>
 
                 <p>
                     {errors.title?.type === "required"
