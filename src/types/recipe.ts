@@ -4,7 +4,6 @@ export interface Recipe {
   img?: string
   title: string
   description?: string
-  image?: string
   difficulty: Difficulty
   tag: string
   preparationTime: number
