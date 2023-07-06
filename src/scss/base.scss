@@ -66,4 +66,17 @@ button {
       border-color: #c45656;
     }
   }
+};
+
+input, select  {
+  border: 1px solid #dadada;
+  border-radius: 6px;
+  outline: 0;
+  background: transparent;
+  padding: 8px !important;
+  letter-spacing: 0.09rem;
+  &::placeholder {
+    color: #979797;
+    font-size: 0.9rem;
+  }
 }

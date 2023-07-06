@@ -1,0 +1,27 @@
+.image-item {
+  border: 1px solid #ccc;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 10px;
+}
+
+.image-item img {
+  width: 100%;
+  height: auto;
+  border-radius: 5px;
+
+}
+
+.image-text {
+  text-align: center;
+  font-weight: bold;
+}
+
+.image-text h3 {
+  margin-top: 0;
+}
+
+.image-text p {
+  margin-bottom: 0;
+}
