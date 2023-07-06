@@ -16,7 +16,7 @@ const Filter: React.FC<FilterProps> = ({
   onFilterClick,
 }) => {
   return (
-    <div>
+    <div className="search">
       <label htmlFor="inputChoice">Filter by:</label>
       <select id="inputChoice" value={selectedOption} onChange={onOptionChange}>
         <option value="Title">Title</option>
