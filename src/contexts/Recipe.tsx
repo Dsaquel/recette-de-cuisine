@@ -25,7 +25,28 @@ const RecipeProvider = ({ children }: Props) => {
       preparationTime: 60,
       tag: 'Plat',
       title: 'Couscous',
-      ingredients: "Merguez,Boeuf,semoule de blé,légumes",
+      ingredients: [
+        {
+            id: 1,
+            name: 'Merguez',
+            quantity: 3,
+        },
+        {
+            id: 2,
+            name: 'Boeuf',
+            quantity: 8
+        },
+        {
+            id: 3,
+            name: 'semoule de blé',
+            quantity: 94039
+        },
+        {
+            id: 4,
+            name: 'légumes',
+            quantity: 4
+        },
+        ],
       person: 4,
       description:
         "Le couscous est un plat d'origine nord-africaine composé d'un plat conséquent de semoule de blé et accompagné de légumes, parfois enrichi de viande d'agneau, de poulet, de brochettes ou de poissons. Il est le plus souvent accompagné par un bouillon pour le goût et de gigots d'agneaux, c'est un plat qui vient du Maroc.",

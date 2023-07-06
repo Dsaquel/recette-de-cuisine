@@ -48,3 +48,18 @@
   color: #333;
   margin-bottom: 10px;
 }
+
+.content_ingredient {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.content_ingredient p {
+  background-color: orangered;
+  padding: 3px;
+  border-radius: 5px;
+  gap: 10px;
+  color: white;
+}

@@ -1,16 +1,23 @@
 .content {
-  background: var(--color-gray);
-  padding: 20px;
+    background: #ebe4e4;
+    padding: 20px;
 }
 
 .navbar {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  max-width: 1300px;
-  gap: 10px;
-  margin: auto;
-  a:hover {
-    text-decoration: underline;
-  }
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    max-width: 1300px;
+    gap: 50px;
+    margin: auto;
+
+    a {
+        padding: 5px;
+        border-radius:10px;
+    }
+
+    a:hover {
+        background-color: orangered;
+        color: white;
+    }
 }

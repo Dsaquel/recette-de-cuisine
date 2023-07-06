@@ -1,4 +1,5 @@
-import { IRecipe } from "@/types/recipe";
+import { useState } from "react";
+import { IIngredient, IRecipe } from "@/types/recipe";
 import "./Recipe.scss";
 
 interface Props {
@@ -7,6 +8,16 @@ interface Props {
 }
 
 const Recipe = ({ recipe, showAllContent = false }: Props) => {
+    const [quantity, setQuantity] = useState(1);
+    const handleQuantityChange = (
+        event: React.ChangeEvent<HTMLInputElement>
+    ) => {
+        const newQuantity = Number(event.target.value);
+        setQuantity(newQuantity);
+    };
+
+    const personNumber = quantity; // Calcul du nombre de personnes
+
     return (
         <div className="image-item">
             <img src={recipe.img} alt="Image 1" />
@@ -14,17 +25,30 @@ const Recipe = ({ recipe, showAllContent = false }: Props) => {
                 <h3 className="card_title">{recipe.title}</h3>
                 {showAllContent && (
                     <div>
-                        {recipe.person > 1 ? (
-                            <p className="card__text">
-                                {recipe.person} personnes
-                            </p>
-                        ) : (
-                            <p className="card__text">
-                                {recipe.person} personne
-                            </p>
-                        )}
+                        <p className="card__text">
+                            <input
+                                type="number"
+                                name="quantity"
+                                id="quantity"
+                                value={quantity}
+                                min="1"
+                                onChange={handleQuantityChange}
+                            />
+                            personne{personNumber > 1 ? "s" : ""}
+                        </p>
                         <p className="card_description">{recipe.description}</p>
-                        <p className="card__text">{recipe.ingredients}</p>
+
+                        {recipe.ingredients.map((ingredient) => (
+                            <div
+                                className="content_ingredient"
+                                key={ingredient.id}>
+                                <p>{ingredient.name}</p>
+                                <span className="card__text">
+                                {ingredient.quantity * personNumber}
+                                </span>
+                            </div>
+                        ))}
+
                         <p className="card__text">{recipe.difficulty}</p>
                         <p className="card__text">
                             {recipe.preparationTime} min

@@ -4,21 +4,30 @@ export interface IRecipe {
   img?: string
   title: string
   description?: string
-  ingredients: string
+  ingredients: IIngredient[]
   person:number
   difficulty: Difficulty
   tag: string
   preparationTime: number
 }
 
-
-
-
-
+export interface IIngredient {
+  id: number
+  name: string
+  quantity: number
+  unitMeasure: UnitMeasure
+}
 
 export enum Difficulty {
     Easy = 'Facile',
     Medium = 'Moyen',
     Hard = 'Difficile',
-    Facile = "Facile"
+}
+
+export enum UnitMeasure {
+  NONE,
+  CL,
+  L,
+  KG,
+  G
 }

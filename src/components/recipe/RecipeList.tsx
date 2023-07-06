@@ -17,8 +17,8 @@ const RecipeList = () => {
     return (
         <div className="image-grid">
             {recipes.map((recipe) => (
-                <div onClick={() => handleClick(recipe.id)}>
-                    <Recipe recipe={recipe} key={recipe.id} />
+                <div onClick={() => handleClick(recipe.id)} key={recipe.id}>
+                    <Recipe recipe={recipe} />
                 </div>
             ))}
         </div>
