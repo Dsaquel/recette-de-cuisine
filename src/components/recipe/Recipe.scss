@@ -1,27 +1,64 @@
 .image-item {
-  border: 1px solid #ccc;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  padding: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+  padding: 20px;
+  transition: 0.3s;
+  cursor: pointer;
+}
+
+.image-item:hover {
+  animation: 0.3s;
+  transform: scale(1.05);
 }
 
 .image-item img {
   width: 100%;
+  height: 100%;
   height: auto;
   border-radius: 5px;
-
+  object-fit: cover;
+  margin: auto;
+  max-width: 50%;
 }
 
 .image-text {
   text-align: center;
-  font-weight: bold;
 }
 
-.image-text h3 {
-  margin-top: 0;
+.card_title{
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: #333;
+  margin-bottom: 10px;
 }
 
-.image-text p {
-  margin-bottom: 0;
+.card__text {
+  font-size: 1.2rem;
+  font-weight: 500;
+  color: #333;
+  margin-bottom: 10px;
+}
+
+.card_description{
+  font-size: 1rem;
+  font-weight: 400;
+  color: #333;
+  margin-bottom: 10px;
+}
+
+.content_ingredient {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.content_ingredient p {
+  background-color: orangered;
+  padding: 3px;
+  border-radius: 5px;
+  gap: 10px;
+  color: white;
 }

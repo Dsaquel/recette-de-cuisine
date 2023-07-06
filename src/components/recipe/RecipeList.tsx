@@ -1,49 +1,30 @@
-import React, { useState } from 'react';
-import { useRecipes } from '@/contexts/Recipe';
-// import RecipeDetail from './RecipeDetail';
-import Recipe from './Recipe';
-interface RecipeListProps {
-  filterOption: string;
-  filterValue: string;
-}
+import { useRecipes } from "@/contexts/Recipe";
+import "./RecipeList.scss";
+import Recipe from "./Recipe";
+import { useNavigate } from "react-router-dom";
 
-const RecipeList: React.FC<RecipeListProps> = ({ filterOption, filterValue }) => {
-  const { recipes } = useRecipes();
-  const [filteredRecipes, setFilteredRecipes] = useState(recipes);
+// TODO: onclick switch sur /recipe/:id
+const RecipeList = () => {
+    const { recipes } = useRecipes();
 
-  React.useEffect(() => {
-    // Filter recipes based on the selected option and filter value
-    const filtered = recipes.filter((recipe) => {
-      const { title, description, difficulty, tag, preparationTime } = recipe;
+    const navigate = useNavigate();
+    
+    const handleClick = (id: number) => {
+        console.log('je change vers recipe')
+        navigate(`/recipe/${id}`);
+    }
 
-      switch (filterOption) {
-        case 'Title':
-          return title.toLowerCase().includes(filterValue.toLowerCase());
-        case 'Description':
-          return description?.toLowerCase().includes(filterValue.toLowerCase());
-        case 'Difficulty':
-          return difficulty ==(Number(filterValue));
-        case 'Tag':
-          return tag.toLowerCase().includes(filterValue.toLowerCase());
-        case 'Preparation Time':
-          return preparationTime == Number((filterValue));
-        default:
-          return true;
-      }
-    });
-
-    setFilteredRecipes(filtered);
-  }, [filterOption, filterValue, recipes]);
-
-  return (
-    <div>
-      <div className="list">
-        {filteredRecipes.map((recipe) => (
-          <Recipe recipe={recipe} key={recipe.id} />
-        ))}
-      </div>
-    </div>
-  );
+    return (
+        <div className="image-grid">
+            {recipes.map((recipe) => (
+                <div onClick={() => handleClick(recipe.id)} key={recipe.id}>
+                    <Recipe recipe={recipe} />
+                </div>
+            ))}
+        </div>
+    );
 };
 
 export default RecipeList;
+
+
