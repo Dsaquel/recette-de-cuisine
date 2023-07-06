@@ -1,82 +1,89 @@
+import { IRecipe } from '@/types/recipe';
 import React, { ReactNode } from 'react'
 import { useContext } from 'react'
 import { useState } from 'react'
-import { Recipe } from '../types/recipe'
 
 interface Props {
-  children?: ReactNode | ReactNode[]
+    children?: ReactNode | ReactNode[]
 }
 
 interface RecipeContext {
-  recipes: Recipe[]
-  setRecipes: SetState<Recipe[]>
+    recipes: IRecipe[],
+    addRecipe: (recipe: IRecipe) => void;
+
+    setRecipes: SetState<IRecipe[]>
 }
 
 export const RecipePageContext = React.createContext<RecipeContext>({} as any)
 
 const RecipeProvider = ({ children }: Props) => {
-  const [recipes, setRecipes] = useState<Recipe[]>([
+  const [recipes, setRecipes] = useState<IRecipe[]>([
     {
       id: 1,
       difficulty: 2,
-      image: 'vite.svg',
-      preparationTime: 389232,
-      tag: 'Entrée',
+      img: 'vite.svg',
+      preparationTime: 60,
+      tag: 'Plat',
       title: 'Couscous',
+      ingredients: "Merguez,Boeuf,semoule de blé,légumes",
       description:
-        'Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptatum aspernatur dignissimos reprehenderit minus repudiandae pariatur vitae molestiae ullam tempore. Sit ab excepturi vero beatae id? Illo aliquid amet unde velit.',
+        "Le couscous est un plat d'origine nord-africaine composé d'un plat conséquent de semoule de blé et accompagné de légumes, parfois enrichi de viande d'agneau, de poulet, de brochettes ou de poissons. Il est le plus souvent accompagné par un bouillon pour le goût et de gigots d'agneaux, c'est un plat qui vient du Maroc.",
     },
-    {
-      id: 2,
-      difficulty: 3,
-      image: 'vite.svg',
-      preparationTime: 65321,
-      tag: 'Dessert',
-      title: 'Pizza',
-      description:
-        'Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptatum aspernatur dignissimos reprehenderit minus repudiandae pariatur vitae molestiae ullam tempore. Sit ab excepturi vero beatae id? Illo aliquid amet unde velit.',
-    },
-    {
-      id: 3,
-      difficulty: 1,
-      image: 'vite.svg',
-      preparationTime: 232134,
-      tag: 'Sucré',
-      title: 'Crêpe américaine',
-      description:
-        'Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptatum aspernatur dignissimos reprehenderit minus repudiandae pariatur vitae molestiae ullam tempore. Sit ab excepturi vero beatae id? Illo aliquid amet unde velit.',
-    },
-    {
-      id: 4,
-      difficulty: 2,
-      image: 'vite.svg',
-      preparationTime: 11232,
-      tag: 'Sucré',
-      title: 'Plat principal',
-      description:
-        'Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptatum aspernatur dignissimos reprehenderit minus repudiandae pariatur vitae molestiae ullam tempore. Sit ab excepturi vero beatae id? Illo aliquid amet unde velit.',
-    },
-    {
-      id: 5,
-      difficulty: 1,
-      image: 'vite.svg',
-      preparationTime: 63211,
-      tag: 'Sucré',
-      title: 'Lazagne',
-      description:
-        'Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptatum aspernatur dignissimos reprehenderit minus repudiandae pariatur vitae molestiae ullam tempore. Sit ab excepturi vero beatae id? Illo aliquid amet unde velit.',
-    },
+    // {
+    //   id: 2,
+    //   difficulty: 3,
+    //   img: 'vite.svg',
+    //   preparationTime: 65321,
+    //   tag: 'Dessert',
+    //   title: 'Pizza',
+    //   description:
+    //     'Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptatum aspernatur dignissimos reprehenderit minus repudiandae pariatur vitae molestiae ullam tempore. Sit ab excepturi vero beatae id? Illo aliquid amet unde velit.',
+    // },
+    // {
+    //   id: 3,
+    //   difficulty: 1,
+    //   img: 'vite.svg',
+    //   preparationTime: 232134,
+    //   tag: 'Sucré',
+    //   title: 'Crêpe américaine',
+    //   description:
+    //     'Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptatum aspernatur dignissimos reprehenderit minus repudiandae pariatur vitae molestiae ullam tempore. Sit ab excepturi vero beatae id? Illo aliquid amet unde velit.',
+    // },
+    // {
+    //   id: 4,
+    //   difficulty: 2,
+    //   img: 'vite.svg',
+    //   preparationTime: 11232,
+    //   tag: 'Sucré',
+    //   title: 'Plat principal',
+    //   description:
+    //     'Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptatum aspernatur dignissimos reprehenderit minus repudiandae pariatur vitae molestiae ullam tempore. Sit ab excepturi vero beatae id? Illo aliquid amet unde velit.',
+    // },
+    // {
+    //   id: 5,
+    //   difficulty: 1,
+    //   img: 'vite.svg',
+    //   preparationTime: 63211,
+    //   tag: 'Sucré',
+    //   title: 'Lazagne',
+    //   description:
+    //     'Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptatum aspernatur dignissimos reprehenderit minus repudiandae pariatur vitae molestiae ullam tempore. Sit ab excepturi vero beatae id? Illo aliquid amet unde velit.',
+    // },
   ])
 
-  return (
-    <RecipePageContext.Provider value={{ recipes, setRecipes }}>
-      {children}
-    </RecipePageContext.Provider>
-  )
+    const addRecipe = (recipe: IRecipe) => {
+        setRecipes([...recipes, recipe])
+    }
+
+    return (
+        <RecipePageContext.Provider value={{ recipes, addRecipe, setRecipes }}>
+            {children}
+        </RecipePageContext.Provider>
+    )
 }
 
 export const useRecipes = () => {
-  return useContext(RecipePageContext)
+    return useContext(RecipePageContext)
 }
 
 export default RecipeProvider

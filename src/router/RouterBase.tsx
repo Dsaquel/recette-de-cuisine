@@ -4,7 +4,8 @@ import { BrowserRouter } from 'react-router-dom'
 import Home from '../pages/Home'
 import RecipeProvider from '../contexts/Recipe'
 import Navbar from '../components/Navbar/Navbar'
-import Recipe from '../pages/Recipe'
+import RecipeHome from '../pages/RecipeHome'
+import RecipeDetail from '@/pages/RecipeDetail'
 
 
 const RouterBase = () => {
@@ -14,7 +15,8 @@ const RouterBase = () => {
           <Navbar />
           <Routes>
             <Route index element={<Home />}></Route>
-            <Route path='/recipe' element={<Recipe />}></Route>
+            <Route path='/recipe' element={<RecipeHome />}></Route>
+            <Route path='/recipe/:id' element={<RecipeDetail />}></Route>
           </Routes>
         </BrowserRouter>
     </RecipeProvider>
