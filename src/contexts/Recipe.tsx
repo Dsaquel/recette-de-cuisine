@@ -56,46 +56,50 @@ const RecipeProvider = ({ children }: Props) => {
       description:
         "Le couscous est un plat d'origine nord-africaine composé d'un plat conséquent de semoule de blé et accompagné de légumes, parfois enrichi de viande d'agneau, de poulet, de brochettes ou de poissons. Il est le plus souvent accompagné par un bouillon pour le goût et de gigots d'agneaux, c'est un plat qui vient du Maroc.",
     },
-    // {
-    //   id: 2,
-    //   difficulty: 3,
-    //   img: 'vite.svg',
-    //   preparationTime: 65321,
-    //   tag: 'Dessert',
-    //   title: 'Pizza',
-    //   description:
-    //     'Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptatum aspernatur dignissimos reprehenderit minus repudiandae pariatur vitae molestiae ullam tempore. Sit ab excepturi vero beatae id? Illo aliquid amet unde velit.',
-    // },
-    // {
-    //   id: 3,
-    //   difficulty: 1,
-    //   img: 'vite.svg',
-    //   preparationTime: 232134,
-    //   tag: 'Sucré',
-    //   title: 'Crêpe américaine',
-    //   description:
-    //     'Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptatum aspernatur dignissimos reprehenderit minus repudiandae pariatur vitae molestiae ullam tempore. Sit ab excepturi vero beatae id? Illo aliquid amet unde velit.',
-    // },
-    // {
-    //   id: 4,
-    //   difficulty: 2,
-    //   img: 'vite.svg',
-    //   preparationTime: 11232,
-    //   tag: 'Sucré',
-    //   title: 'Plat principal',
-    //   description:
-    //     'Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptatum aspernatur dignissimos reprehenderit minus repudiandae pariatur vitae molestiae ullam tempore. Sit ab excepturi vero beatae id? Illo aliquid amet unde velit.',
-    // },
-    // {
-    //   id: 5,
-    //   difficulty: 1,
-    //   img: 'vite.svg',
-    //   preparationTime: 63211,
-    //   tag: 'Sucré',
-    //   title: 'Lazagne',
-    //   description:
-    //     'Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptatum aspernatur dignissimos reprehenderit minus repudiandae pariatur vitae molestiae ullam tempore. Sit ab excepturi vero beatae id? Illo aliquid amet unde velit.',
-    // },
+    {
+      id: 2,
+      difficulty: 3,
+      img: 'vite.svg',
+      preparationTime: 65321,
+      tag: 'Dessert',
+      title: 'Pizza',
+      ingredients: "Merguez,Boeuf,semoule de blé,légumes",
+      description:
+        'Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptatum aspernatur dignissimos reprehenderit minus repudiandae pariatur vitae molestiae ullam tempore. Sit ab excepturi vero beatae id? Illo aliquid amet unde velit.',
+    },
+    {
+      id: 3,
+      difficulty: 1,
+      img: 'vite.svg',
+      preparationTime: 232134,
+      tag: 'Sucré',
+      title: 'Crêpe américaine',
+      ingredients: "Merguez,Boeuf,semoule de blé,légumes",
+      description:
+        'Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptatum aspernatur dignissimos reprehenderit minus repudiandae pariatur vitae molestiae ullam tempore. Sit ab excepturi vero beatae id? Illo aliquid amet unde velit.',
+    },
+    {
+      id: 4,
+      difficulty: 2,
+      img: 'vite.svg',
+      preparationTime: 11232,
+      tag: 'Sucré',
+      title: 'Plat principal',
+      ingredients: "Merguez,Boeuf,semoule de blé,légumes",
+      description:
+        'Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptatum aspernatur dignissimos reprehenderit minus repudiandae pariatur vitae molestiae ullam tempore. Sit ab excepturi vero beatae id? Illo aliquid amet unde velit.',
+    },
+    {
+      id: 5,
+      difficulty: 1,
+      img: 'vite.svg',
+      preparationTime: 63211,
+      tag: 'Sucré',
+      title: 'Lazagne',
+      ingredients: "Merguez,Boeuf,semoule de blé,légumes",
+      description:
+        'Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptatum aspernatur dignissimos reprehenderit minus repudiandae pariatur vitae molestiae ullam tempore. Sit ab excepturi vero beatae id? Illo aliquid amet unde velit.',
+    },
   ])
 
     const addRecipe = (recipe: IRecipe) => {
