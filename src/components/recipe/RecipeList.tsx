@@ -3,7 +3,6 @@ import "./RecipeList.scss";
 import Recipe from "./Recipe";
 import { useNavigate } from "react-router-dom";
 
-// TODO: onclick switch sur /recipe/:id
 const RecipeList = () => {
     const { recipes } = useRecipes();
 
