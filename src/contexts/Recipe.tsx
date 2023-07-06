@@ -1,4 +1,4 @@
-import { IRecipe } from '@/types/recipe';
+import { Difficulty, IRecipe } from '@/types/recipe';
 import React, { ReactNode } from 'react'
 import { useContext } from 'react'
 import { useState } from 'react'
@@ -20,12 +20,13 @@ const RecipeProvider = ({ children }: Props) => {
   const [recipes, setRecipes] = useState<IRecipe[]>([
     {
       id: 1,
-      difficulty: 2,
+      difficulty: Difficulty.Easy,
       img: 'vite.svg',
       preparationTime: 60,
       tag: 'Plat',
       title: 'Couscous',
       ingredients: "Merguez,Boeuf,semoule de blé,légumes",
+      person: 4,
       description:
         "Le couscous est un plat d'origine nord-africaine composé d'un plat conséquent de semoule de blé et accompagné de légumes, parfois enrichi de viande d'agneau, de poulet, de brochettes ou de poissons. Il est le plus souvent accompagné par un bouillon pour le goût et de gigots d'agneaux, c'est un plat qui vient du Maroc.",
     },

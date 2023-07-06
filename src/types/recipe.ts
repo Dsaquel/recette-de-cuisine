@@ -5,14 +5,20 @@ export interface IRecipe {
   title: string
   description?: string
   ingredients: string
+  person:number
   difficulty: Difficulty
   tag: string
   preparationTime: number
 }
 
-// faire une enum pour les difficultés
+
+
+
+
+
 export enum Difficulty {
-  Easy = 1,
-  Medium = 2,
-  Hard = 3,
+    Easy = 'Facile',
+    Medium = 'Moyen',
+    Hard = 'Difficile',
+    Facile = "Facile"
 }

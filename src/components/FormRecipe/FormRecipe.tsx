@@ -13,10 +13,11 @@ const FormRecipe = () => {
             title: data.title,
             description: data.description,
             ingredients: data.ingredients,
+            person: data.person,
             difficulty: data.difficulty,
             tag: data.tag,
             preparationTime: data.preparationTime,
-            img: data.img
+            img: data.img,
         });
     };
 
@@ -45,6 +46,17 @@ const FormRecipe = () => {
                         {...register("ingredients")}
                     />
                 </div>
+                {/* choix, quantité & unité de mesure */}
+
+                <div>
+                <label htmlFor="person">Nombre de personnes</label>
+                    <input
+                    type="number"
+                        placeholder="Nombre de personnes"
+                        {...register("person")}
+                    />
+                </div>
+                
                 <div>
                     <label htmlFor="difficulty">Difficulté :</label>
                     <select id="difficulty" {...register("difficulty")}>
@@ -62,10 +74,10 @@ const FormRecipe = () => {
                         {...register("preparationTime")}
                     />
                 </div>
-
-                <label htmlFor="tag">Tag</label>
-                <input placeholder="Tag" {...register("tag")} />
-
+                <div>
+                    <label htmlFor="tag">Tag</label>
+                    <input placeholder="Tag" {...register("tag")} />
+                </div>
                 <button type="submit">Ajouter la recette</button>
             </form>
         </div>
