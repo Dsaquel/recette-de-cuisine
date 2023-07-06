@@ -6,7 +6,9 @@ interface Props {
 }
 
 const RecipeDetail = ({ recipe }: Props) => {
-  return <div></div>
+  return <div>
+    
+  </div>
 }
 
 export default RecipeDetail
