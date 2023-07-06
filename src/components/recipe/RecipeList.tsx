@@ -1,18 +1,17 @@
-import { useRecipes } from '@/contexts/Recipe'
-import './RecipeList.scss'
-import RecipeDetail from './RecipeDetail'
+import { useRecipes } from "@/contexts/Recipe";
+import "./RecipeList.scss";
+import Recipe from "./Recipe";
 
+// TODO: onclick switch sur /recipe/:id
 const RecipeList = () => {
-  const { recipes } = useRecipes()
-  return (
-    <div>
-      <div className="list">
-        {recipes.map((recipe) => (
-          <RecipeDetail recipe={recipe} key={recipe.id} />
-        ))}
-      </div>
-    </div>
-  )
-}
+    const { recipes } = useRecipes();
+    return (
+        <div className="image-grid">
+            {recipes.map((recipe) => (
+                <Recipe recipe={recipe} key={recipe.id} />
+            ))}
+        </div>
+    );
+};
 
 export default RecipeList;

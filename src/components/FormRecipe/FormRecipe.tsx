@@ -1,20 +1,22 @@
 import { useRecipes } from "@/contexts/Recipe";
-import { Difficulty, Recipe } from "@/types/recipe";
+import { Difficulty, IRecipe } from "@/types/recipe";
 import { useForm } from "react-hook-form";
 import "./FormRecipe.scss";
 
 const FormRecipe = () => {
-    const { handleSubmit, register } = useForm<Recipe>();
+    const { handleSubmit, register } = useForm<IRecipe>();
     const { addRecipe } = useRecipes();
 
-    const onSubmit = (data: Recipe) => {
+    const onSubmit = (data: IRecipe) => {
         addRecipe({
             id: Date.now(),
             title: data.title,
             description: data.description,
+            ingredients: data.ingredients,
             difficulty: data.difficulty,
             tag: data.tag,
             preparationTime: data.preparationTime,
+            img: data.img
         });
     };
 
@@ -31,9 +33,16 @@ const FormRecipe = () => {
                 </div>
                 <div>
                     <label htmlFor="description">Description</label>
-                    <input
+                    <textarea
                         placeholder="Description"
                         {...register("description")}
+                    />
+                </div>
+                <div>
+                    <label htmlFor="ingredients">Ingredients</label>
+                    <input
+                        placeholder="Ingredients"
+                        {...register("ingredients")}
                     />
                 </div>
                 <div>
@@ -54,12 +63,10 @@ const FormRecipe = () => {
                     />
                 </div>
 
-                {/* <label htmlFor="tag">Tag</label>
-                <input placeholder="Tag" {...register("tag")} /> */}
+                <label htmlFor="tag">Tag</label>
+                <input placeholder="Tag" {...register("tag")} />
 
-                <button type="submit">
-                    Ajouter la recette
-                </button>
+                <button type="submit">Ajouter la recette</button>
             </form>
         </div>
     );

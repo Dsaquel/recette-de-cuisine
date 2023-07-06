@@ -1,9 +1,10 @@
 // type de l'object recette
-export interface Recipe {
+export interface IRecipe {
   id: number
   img?: string
   title: string
   description?: string
+  ingredients: string
   difficulty: Difficulty
   tag: string
   preparationTime: number
